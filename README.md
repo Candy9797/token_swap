@@ -1,36 +1,69 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# Token Swap Tool
 
-## Getting Started
+## Overview
+The Token Swap Tool is a decentralized application built with Next.js that allows users to swap tokens seamlessly using the Li.Fi API. The application connects to the user's MetaMask wallet, retrieves token balances, and provides an intuitive interface for selecting tokens and executing swaps.
 
-First, run the development server:
+## Features
+- Connect to MetaMask wallet
+- Retrieve token balances and switch chains
+- Fetch token lists from Li.Fi
+- Select tokens for swapping through a user-friendly dialog
+- Obtain the best swap route using Li.Fi
+- Execute token swaps through smart contract interactions
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+## Project Structure
+```
+token-swap-tool
+├── public
+│   └── next.svg               # Logo for the application
+├── src
+│   ├── components
+│   │   ├── ConnectWallet.tsx   # Component for wallet connection
+│   │   ├── TokenListDialog.tsx  # Component for selecting tokens
+│   │   └── SwapRoute.tsx        # Component for displaying swap routes
+│   ├── hooks
+│   │   └── useWallet.ts         # Custom hook for wallet logic
+│   ├── pages
+│   │   ├── api
+│   │   │   └── lifi.ts          # API route for Li.Fi interactions
+│   │   └── index.tsx            # Main entry point of the application
+│   ├── styles
+│   │   └── globals.css          # Global CSS styles
+│   ├── utils
+│   │   └── lifi.ts              # Utility functions for Li.Fi API
+│   └── app
+│       └── page.tsx             # Main layout of the application
+├── package.json                  # npm configuration file
+├── tsconfig.json                 # TypeScript configuration file
+└── README.md                     # Project documentation
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+## Setup Instructions
+1. Clone the repository:
+   ```
+   git clone <repository-url>
+   cd token-swap-tool
+   ```
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+2. Install dependencies:
+   ```
+   npm install
+   ```
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+3. Start the development server:
+   ```
+   npm run dev
+   ```
 
-## Learn More
+4. Open your browser and navigate to `http://localhost:3000` to view the application.
 
-To learn more about Next.js, take a look at the following resources:
+## Usage
+- Connect your MetaMask wallet to start using the token swap tool.
+- Select the tokens you wish to swap from the dialog.
+- Review the best swap route and execute the transaction.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+## Contributing
+Contributions are welcome! Please open an issue or submit a pull request for any enhancements or bug fixes.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+## License
+This project is licensed under the MIT License.
