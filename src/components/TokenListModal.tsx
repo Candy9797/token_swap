@@ -32,7 +32,7 @@ const TokenListModal = () => {
     if (showTokenListModal && chainId) {
       fetchTokenList()
     }
-  }, [chainId, showTokenListModal, fetchTokenList])
+  }, [chainId, showTokenListModal])
   const onTokenClick = (token: Token) => {
     const { chainId, address
     } = token;
