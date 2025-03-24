@@ -1,18 +1,17 @@
 'use client'
 import { useAppContext } from '@/app/store';
-import { useLiFi } from '@/hooks/useLiFi';
 import { ChainType, Token } from '@lifi/sdk';
 import React, { useEffect, useState } from 'react';
 import { Modal, ModalOverlay, ModalContent, ModalHeader, ModalCloseButton, ModalBody, ModalFooter, Button, Heading, Spinner } from '@chakra-ui/react';
 import { getChainName, getTokenList } from '@/utils/lifi';
-interface TokenListModalProps {
+export interface TokenListModalProps {
   show?: boolean;
   onClose?: () => void;
   tokens?: { name: string; symbol: string }[];
 }
 
 
-const TokenListModal = (props: TokenListModalProps) => {
+const TokenListModal = () => {
   const { tokens, chainId, setChainId, showTokenListModal, setShowTokenListModal, setTokens } = useAppContext();
   const [loading, setLoading] = useState(true)
   const fetchTokenList = async () => {
@@ -33,11 +32,11 @@ const TokenListModal = (props: TokenListModalProps) => {
     if (showTokenListModal && chainId) {
       fetchTokenList()
     }
-  }, [chainId, showTokenListModal])
+  }, [chainId, showTokenListModal, fetchTokenList])
   const onTokenClick = (token: Token) => {
-    console.log(token, 'token clicked')
     const { chainId, address
     } = token;
+    console.log(token,chainId, address, 'token clicked')
     // const res = getBestSwapRoute({
     //   fromChainId: chainId,
     //   fromAmount: 2,
@@ -70,7 +69,6 @@ const TokenListModal = (props: TokenListModalProps) => {
             /> : (
               tokens || []).map((token: Token, index: number) => (
                 <div key={index + token.name} className="cursor-pointer mt-4 max-w-md bg-white rounded-xl shadow-md overflow-hidden p-5 border border-gray-200" onClick={() => onTokenClick(token)}>
-                  {/* Header Section */}
                   <div className="flex items-center gap-4">
                     <img
                       src={token.logoURI}
@@ -86,7 +84,6 @@ const TokenListModal = (props: TokenListModalProps) => {
                       </p>
                     </div>
                   </div>
-                  {/* Details Section */}
                   <div className="border-t pt-2">
                     {/* Contract Address */}
                     {/* <div className="mb-4">
