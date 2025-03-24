@@ -1,4 +1,3 @@
-import axios from 'axios';
 /**
  * 
  * 功能特性：
@@ -11,7 +10,7 @@ import axios from 'axios';
 interface Chains {
   [key: number]: string;
 }
-import { Route, RoutesRequest, TokensRequest, getRoutes, getTokens } from '@lifi/sdk'
+import { Route,  TokensRequest, getRoutes, getTokens } from '@lifi/sdk'
 
 // const LI_FI_API_URL = 'https://api.li.fi/v1';
 export const getChainName = (chainId: number): string => {

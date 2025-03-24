@@ -1,10 +1,8 @@
 'use client'
-import { useAccount, useBalance, useConnect, useDisconnect, useEnsAvatar, useEnsName, useSwitchChain } from "wagmi";
+import { useAccount, useBalance, useConnect, useDisconnect,  useSwitchChain } from "wagmi";
 import { injected } from 'wagmi/connectors'
-import { useLiFi } from "@/hooks/useLiFi";
 import { useEffect } from "react";
-import { Button, ButtonGroup } from '@chakra-ui/react'
-import { ChainType } from "@lifi/sdk";
+import { Button} from '@chakra-ui/react'
 import { useAppContext } from "@/app/store";
 import { Heading } from "@chakra-ui/react";
 const ConnectWallet = () => {
@@ -18,7 +16,7 @@ const ConnectWallet = () => {
   });
   useEffect(() => {
     chain?.id && setChainId(chain.id)
-  }, [chain?.id]);
+  }, [chain?.id, setChainId]);
   return (
     <div>
       <Heading as='h4' size='md'>

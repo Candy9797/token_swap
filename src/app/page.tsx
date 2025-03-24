@@ -1,7 +1,4 @@
 import ConnectWallet from "../components/ConnectWallet";
-import TokenListDialog from "../components/TokenListModal";
-import SwapRoute from "../components/SwapRoute";
-import CustomWagmiProvider from "@/providers/WagmiProvider";
 import TokenListModal from "../components/TokenListModal";
 import { AppProvider } from "./store";
 import { ChakraProvider } from '@chakra-ui/react'
